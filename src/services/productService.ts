@@ -2,7 +2,7 @@ import type { Product } from "../types/product";
 import { products } from "../data/products";
 
 const SIMULATED_DELAY_MS = 800;
-const FAILURE_RATE = 0; 
+const FAILURE_RATE = 0;
 
 function delay(ms: number) {
   return new Promise((resolve) => setTimeout(resolve, ms));
