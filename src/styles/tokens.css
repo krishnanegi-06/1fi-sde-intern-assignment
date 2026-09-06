@@ -1,0 +1,28 @@
+:root {
+  --color-primary-purple: #5B21B6;
+  --color-primary-purple-dark: #2E1065;
+  --color-accent-gold: #F5A623;
+  --color-surface: #FFFFFF;
+  --color-background: #F5F4F8;
+  --color-text-primary: #1A1A1A;
+  --color-text-secondary: #6B7280;
+  --color-badge-bg: #F3F0FA;
+  --color-border-soft: #ECEAF2;
+
+  --font-size-heading-lg: 28px;
+  --font-size-heading-md: 20px;
+  --font-size-card-title: 17px;
+  --font-size-card-subtitle: 13px;
+  --font-size-nav-label: 11px;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  --space-page-x: 16px;
+  --space-card-gap: 12px;
+  --space-card-padding: 16px;
+
+  --radius-card: 18px;
+  --radius-pill: 999px;
+
+  --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
