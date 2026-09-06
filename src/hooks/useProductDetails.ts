@@ -46,9 +46,13 @@ export function useProductDetails(productId: string | undefined): UseProductDeta
     }
   }, [productId]);
 
-  useEffect(() => {
-    fetchDetails();
-  }, [fetchDetails]);
+ useEffect(() => {
+  // Data fetching on mount is a standard, documented useEffect use case;
+  // this rule's "avoid setState in effect" guidance targets derived-state
+  // resets (which have a render-time alternative), not async data fetching.
+  // eslint-disable-next-line react-hooks/set-state-in-effect
+  fetchDetails();
+}, [fetchDetails]);
 
   return { product, emiPlans, loading, error, retry: fetchDetails };
 }

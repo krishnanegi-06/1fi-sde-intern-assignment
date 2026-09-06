@@ -1,4 +1,4 @@
-import { useState, useMemo, useEffect } from "react";
+import { useState, useMemo } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useProductDetails } from "../../hooks/useProductDetails";
 import VariantSelector from "../../components/marketplace/VariantSelector";
@@ -13,15 +13,15 @@ function ProductDetails() {
   const navigate = useNavigate();
   const { product, emiPlans, loading, error, retry } = useProductDetails(productId);
 
-  const [selectedVariantId, setSelectedVariantId] = useState<string>("");
-  const [selectedEmiPlanId, setSelectedEmiPlanId] = useState<string>("");
-  const [confirmed, setConfirmed] = useState(false);
+ const [selectedVariantId, setSelectedVariantId] = useState<string>("");
+const [selectedEmiPlanId, setSelectedEmiPlanId] = useState<string>("");
+const [confirmed, setConfirmed] = useState(false);
+const [lastLoadedProductId, setLastLoadedProductId] = useState<string | null>(null);
 
-  useEffect(() => {
-    if (product && product.variants.length > 0) {
-      setSelectedVariantId(product.variants[0].id);
-    }
-  }, [product]);
+if (product && product.id !== lastLoadedProductId) {
+  setLastLoadedProductId(product.id);
+  setSelectedVariantId(product.variants[0]?.id ?? "");
+}
 
   const displayPrice = useMemo(() => {
     if (!product) return 0;

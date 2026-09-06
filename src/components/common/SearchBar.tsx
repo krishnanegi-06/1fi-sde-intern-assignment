@@ -1,4 +1,5 @@
 import "./SearchBar.css";
+
 interface SearchBarProps {
   placeholder: string;
   value: string;
@@ -8,13 +9,14 @@ interface SearchBarProps {
 function SearchBar({ placeholder, value, onChange }: SearchBarProps) {
   return (
     <div className="search-bar">
-      <span className="search-icon">🔍</span>
+      <span className="search-icon" aria-hidden="true">🔍</span>
       <input
         type="text"
         placeholder={placeholder}
         value={value}
         onChange={(e) => onChange(e.target.value)}
         className="search-input"
+        aria-label={placeholder}
       />
     </div>
   );
