@@ -8,16 +8,17 @@
 
 .tab-button {
   flex: 1;
-  padding: 10px 16px;
+  padding: 10px 12px;
   border: none;
   background: transparent;
   border-radius: var(--radius-pill);
-  font-size: var(--font-size-card-subtitle);
+  font-size: 13px;
   font-weight: var(--font-weight-semibold);
   color: var(--color-text-secondary);
   cursor: pointer;
   transition: all 0.2s ease;
   position: relative;
+  white-space: nowrap;
 }
 
 .tab-active {
