@@ -1,6 +1,12 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
+import { useNavigate } from "react-router-dom";
 import Tabs from "../../components/common/Tabs";
 import SearchBar from "../../components/common/SearchBar";
+import ProductCard from "../../components/marketplace/ProductCard";
+import LoadingState from "../../components/common/LoadingState";
+import ErrorState from "../../components/common/ErrorState";
+import EmptyState from "../../components/common/EmptyState";
+import { useProducts } from "../../hooks/useProducts";
 import "./Shop.css";
 
 const SHOP_TABS = [
@@ -12,6 +18,19 @@ const SHOP_TABS = [
 function Shop() {
   const [activeTab, setActiveTab] = useState("top-brands");
   const [searchValue, setSearchValue] = useState("");
+  const navigate = useNavigate();
+
+  const { products, loading, error, retry } = useProducts();
+
+  const filteredProducts = useMemo(() => {
+    if (!searchValue.trim()) return products;
+    const query = searchValue.toLowerCase();
+    return products.filter(
+      (p) =>
+        p.name.toLowerCase().includes(query) ||
+        p.category.toLowerCase().includes(query)
+    );
+  }, [products, searchValue]);
 
   return (
     <div className="shop-page">
@@ -47,7 +66,26 @@ function Shop() {
         <div className="tab-panel">
           {activeTab === "top-brands" && <p>Top Brands (not implemented)</p>}
           {activeTab === "nearby-stores" && <p>Nearby Stores (not implemented)</p>}
-          {activeTab === "marketplace" && <p>1Fi Marketplace (coming next)</p>}
+          {activeTab === "marketplace" && (
+            <>
+              {loading && <LoadingState message="Loading products..." />}
+              {!loading && error && <ErrorState message={error} onRetry={retry} />}
+              {!loading && !error && filteredProducts.length === 0 && (
+                <EmptyState message="No products found" />
+              )}
+              {!loading && !error && filteredProducts.length > 0 && (
+                <div className="product-list">
+                  {filteredProducts.map((product) => (
+                    <ProductCard
+                      key={product.id}
+                      product={product}
+                      onClick={() => navigate(`/product/${product.id}`)}
+                    />
+                  ))}
+                </div>
+              )}
+            </>
+          )}
         </div>
       </div>
     </div>
