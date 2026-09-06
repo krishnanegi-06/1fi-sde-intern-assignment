@@ -1,0 +1,27 @@
+.tabs-container {
+  display: flex;
+  background-color: var(--color-badge-bg);
+  border-radius: var(--radius-pill);
+  padding: 4px;
+  gap: 4px;
+}
+
+.tab-button {
+  flex: 1;
+  padding: 10px 16px;
+  border: none;
+  background: transparent;
+  border-radius: var(--radius-pill);
+  font-size: var(--font-size-card-subtitle);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.tab-active {
+  background-color: var(--color-surface);
+  color: var(--color-primary-purple);
+  box-shadow: var(--shadow-card);
+}

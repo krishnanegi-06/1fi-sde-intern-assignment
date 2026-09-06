@@ -1,0 +1,60 @@
+.shop-page {
+  min-height: 100vh;
+  background-color: var(--color-background);
+  padding-bottom: 24px;
+}
+
+.hero-banner {
+  background: linear-gradient(
+    160deg,
+    var(--color-primary-purple) 0%,
+    var(--color-primary-purple-dark) 100%
+  );
+  padding: 32px var(--space-page-x) 56px;
+  color: white;
+}
+
+.hero-badge {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: var(--radius-pill);
+  padding: 6px 14px;
+  font-size: 11px;
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.5px;
+  margin-bottom: 16px;
+}
+
+.hero-heading {
+  font-size: var(--font-size-heading-lg);
+  line-height: 1.25;
+  font-weight: var(--font-weight-bold);
+  margin: 0 0 12px;
+}
+
+.hero-heading em {
+  font-style: italic;
+  font-weight: 500;
+}
+
+.hero-subtext {
+  font-size: var(--font-size-card-subtitle);
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0;
+  max-width: 300px;
+}
+
+.shop-content {
+  padding: 0 var(--space-page-x);
+  margin-top: -32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.tab-panel {
+  margin-top: 8px;
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-card-subtitle);
+}
