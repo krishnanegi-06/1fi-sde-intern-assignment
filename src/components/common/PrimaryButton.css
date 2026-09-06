@@ -1,0 +1,18 @@
+.primary-button {
+  width: 100%;
+  background-color: var(--color-primary-purple);
+  color: white;
+  border: none;
+  border-radius: var(--radius-pill);
+  padding: 16px;
+  font-size: var(--font-size-card-title);
+  font-weight: var(--font-weight-semibold);
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+}
+
+.primary-button:disabled {
+  background-color: var(--color-border-soft);
+  color: var(--color-text-secondary);
+  cursor: not-allowed;
+}
