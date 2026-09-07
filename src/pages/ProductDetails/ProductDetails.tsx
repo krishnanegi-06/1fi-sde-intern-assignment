@@ -13,15 +13,15 @@ function ProductDetails() {
   const navigate = useNavigate();
   const { product, emiPlans, loading, error, retry } = useProductDetails(productId);
 
- const [selectedVariantId, setSelectedVariantId] = useState<string>("");
-const [selectedEmiPlanId, setSelectedEmiPlanId] = useState<string>("");
-const [confirmed, setConfirmed] = useState(false);
-const [lastLoadedProductId, setLastLoadedProductId] = useState<string | null>(null);
+  const [selectedVariantId, setSelectedVariantId] = useState<string>("");
+  const [selectedEmiPlanId, setSelectedEmiPlanId] = useState<string>("");
+  const [confirmed, setConfirmed] = useState(false);
+  const [lastLoadedProductId, setLastLoadedProductId] = useState<string | null>(null);
 
-if (product && product.id !== lastLoadedProductId) {
-  setLastLoadedProductId(product.id);
-  setSelectedVariantId(product.variants[0]?.id ?? "");
-}
+  if (product && product.id !== lastLoadedProductId) {
+    setLastLoadedProductId(product.id);
+    setSelectedVariantId(product.variants[0]?.id ?? "");
+  }
 
   const displayPrice = useMemo(() => {
     if (!product) return 0;
@@ -40,7 +40,11 @@ if (product && product.id !== lastLoadedProductId) {
     return (
       <div className="product-details-page">
         <div className="confirmation-screen">
-          <div className="confirmation-icon">✓</div>
+          <div className="confirmation-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+              <polyline points="20 6 9 17 4 12" />
+            </svg>
+          </div>
           <h2>EMI Plan Confirmed</h2>
           <div className="confirmation-summary">
             <p><strong>Product:</strong> {product.name}</p>
@@ -61,11 +65,19 @@ if (product && product.id !== lastLoadedProductId) {
 
   return (
     <div className="product-details-page">
-      <button className="back-button" onClick={() => navigate(-1)}>
-        ← Back
-      </button>
-
-      <img src={product.image} alt={product.name} className="product-details-image" />
+      <div className="product-image-container">
+        <button
+          type="button"
+          className="back-button"
+          onClick={() => navigate(-1)}
+          aria-label="Go back"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
+        <img src={product.image} alt={product.name} className="product-details-image" />
+      </div>
 
       <div className="product-details-content">
         <h1 className="product-details-name">{product.name}</h1>

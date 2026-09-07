@@ -1,60 +1,313 @@
 .shop-page {
   min-height: 100vh;
-  background-color: var(--color-background);
-   padding-bottom: 90px;
+  background-color: #F8F7FB;
+  padding-bottom: 96px;
 }
 
+/* Hero Banner */
 .hero-banner {
   background: linear-gradient(
-    160deg,
-    var(--color-primary-purple) 0%,
-    var(--color-primary-purple-dark) 100%
+    135deg,
+    #2B0856 0%,
+    #431388 40%,
+    #561C9C 70%,
+    #310963 100%
   );
-  padding: 32px var(--space-page-x) 56px;
+  padding: 26px 16px 44px;
   color: white;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  min-height: 235px;
+}
+
+.hero-banner-content {
+  flex: 1;
+  position: relative;
+  z-index: 2;
+  max-width: 62%;
+}
+
+.hero-art-wrapper {
+  position: absolute;
+  right: -4px;
+  top: 0;
+  bottom: 0;
+  width: 48%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.hero-art-image {
+  height: 96%;
+  width: auto;
+  object-fit: contain;
+  object-position: right bottom;
 }
 
 .hero-badge {
-  display: inline-block;
-  background: rgba(255, 255, 255, 0.15);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.25);
   border-radius: var(--radius-pill);
-  padding: 6px 14px;
+  padding: 4px 12px;
   font-size: 11px;
-  font-weight: var(--font-weight-semibold);
-  letter-spacing: 0.5px;
-  margin-bottom: 16px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  margin-bottom: 14px;
+  color: #FFFFFF;
 }
 
 .hero-heading {
-  font-size: var(--font-size-heading-lg);
-  line-height: 1.25;
-  font-weight: var(--font-weight-bold);
-  margin: 0 0 12px;
+  font-size: 24px;
+  line-height: 1.22;
+  font-weight: 800;
+  margin: 0 0 10px;
+  color: #FFFFFF;
+  letter-spacing: -0.3px;
 }
 
 .hero-heading em {
   font-style: italic;
   font-weight: 500;
+  color: #FFFFFF;
+}
+
+.hero-heading strong {
+  font-weight: 800;
 }
 
 .hero-subtext {
-  font-size: var(--font-size-card-subtitle);
+  font-size: 11.5px;
+  line-height: 1.42;
   color: rgba(255, 255, 255, 0.85);
   margin: 0;
-  max-width: 300px;
 }
 
+/* Main Content Area */
 .shop-content {
-  padding: 0 var(--space-page-x);
-  margin-top: -32px;
+  padding: 0 16px;
+  margin-top: -24px;
+  position: relative;
+  z-index: 10;
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
 
-.tab-panel {
-  margin-top: 8px;
-  color: var(--color-text-secondary);
-  font-size: var(--font-size-card-subtitle);
+/* Section Header */
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  margin-top: 4px;
+}
+
+.section-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #111827;
+  margin: 0;
+}
+
+.location-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: #EFEAF7;
+  color: #622CA7;
+  font-size: 11px;
+  font-weight: 600;
+  border: none;
+  border-radius: var(--radius-pill);
+  padding: 4px 10px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+/* Brands List */
+.brands-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.brand-card {
+  background: #FFFFFF;
+  border-radius: 16px;
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  border: 1px solid #ECE7F4;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
+}
+
+.brand-logo-box {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: white;
+  padding: 4px;
+}
+
+.logo-airindia {
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: 0.5px;
+  text-align: center;
+}
+
+.apple-sub {
+  font-size: 6.5px;
+  letter-spacing: 0.2px;
+  opacity: 0.85;
+  margin-top: 1px;
+}
+
+.caratlane-sub {
+  font-size: 7px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  margin-top: 2px;
+}
+
+.brand-logo-fallback {
+  font-size: 9px;
+  font-weight: 800;
+}
+
+.brand-info {
+  flex: 1;
+}
+
+.brand-name {
+  font-size: 15px;
+  font-weight: 600;
+  color: #111827;
+  margin: 0 0 3px;
+}
+
+.brand-emi {
+  font-size: 12.5px;
+  color: #6B7280;
+  margin: 0;
+}
+
+/* Stores List */
+.stores-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.store-card {
+  background: #FFFFFF;
+  border-radius: 16px;
+  padding: 14px 16px;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  border: 1px solid #ECE7F4;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
+}
+
+.store-logo-box {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: #FFFFFF;
+  border: 1px solid #E8E5F0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  padding: 4px;
+}
+
+.store-suzuki-txt {
+  font-size: 7px;
+  font-weight: 900;
+  color: #002D62;
+  margin-top: 2px;
+  letter-spacing: 0.4px;
+}
+
+.store-honda-txt {
+  font-size: 7px;
+  font-weight: 900;
+  color: #CC0000;
+  letter-spacing: 0.4px;
+}
+
+.store-charger-txt {
+  font-size: 7px;
+  font-weight: 900;
+  color: #10B981;
+  text-align: center;
+  line-height: 1.1;
+}
+
+.store-generic-txt {
+  font-size: 8px;
+  font-weight: 800;
+  color: #6B7280;
+}
+
+.store-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.store-header-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.store-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: #111827;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.distance-badge {
+  background: #F3F4F6;
+  color: #6B7280;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: 4px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.store-address {
+  font-size: 12px;
+  color: #6B7280;
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* Product list (Marketplace) */
+.product-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }

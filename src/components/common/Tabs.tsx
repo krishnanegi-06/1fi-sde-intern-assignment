@@ -1,4 +1,5 @@
 import "./Tabs.css";
+
 interface Tab {
   id: string;
   label: string;
@@ -13,15 +14,20 @@ interface TabsProps {
 function Tabs({ tabs, activeTabId, onTabChange }: TabsProps) {
   return (
     <div className="tabs-container">
-      {tabs.map((tab) => (
-        <button
-          key={tab.id}
-          className={`tab-button ${tab.id === activeTabId ? "tab-active" : ""}`}
-          onClick={() => onTabChange(tab.id)}
-        >
-          {tab.label}
-        </button>
-      ))}
+      {tabs.map((tab) => {
+        const isActive = tab.id === activeTabId;
+        return (
+          <button
+            key={tab.id}
+            type="button"
+            className={`tab-button ${isActive ? "tab-active" : ""}`}
+            onClick={() => onTabChange(tab.id)}
+          >
+            <span className="tab-label">{tab.label}</span>
+            {isActive && <span className="tab-indicator" />}
+          </button>
+        );
+      })}
     </div>
   );
 }
